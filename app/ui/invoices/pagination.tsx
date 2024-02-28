@@ -21,7 +21,6 @@ export default function Pagination({ totalPages }: { totalPages: number }) {
 
   return (
     <>
-
       <div className="inline-flex">
         <PaginationArrow
           direction="left"
