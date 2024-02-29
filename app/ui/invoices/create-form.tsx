@@ -7,10 +7,12 @@ import {
   UserCircleIcon,
 } from '@heroicons/react/24/outline';
 import { Button } from '@/app/ui/button';
+import { createInvoice } from '@/app/lib/actions';
 
 export default function Form({ customers }: { customers: CustomerField[] }) {
   return (
-    <form>
+    // dicas sobre o form abaixo
+    <form action={createInvoice}> 
       <div className="rounded-md bg-gray-50 p-4 md:p-6">
         {/* Customer Name */}
         <div className="mb-4">
@@ -110,3 +112,17 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
     </form>
   );
 }
+
+/*
+  É bom saber : em HTML, você passaria uma URL para o actionatributo.
+  Este URL seria o destino para onde os dados do seu formulário deveriam ser enviados
+  (geralmente um endpoint da API).
+
+  No entanto, no React, o actionatributo é considerado um suporte
+  especial - o que significa que o React é construído sobre ele para
+  permitir que ações sejam invocadas.
+
+  Nos bastidores, as ações do servidor criam um POSTendpoint de API.
+  É por isso que você não precisa criar endpoints de
+  API manualmente ao usar ações do servidor.
+*/
